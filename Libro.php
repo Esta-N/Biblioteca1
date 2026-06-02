@@ -17,6 +17,6 @@
         }
     }
 
-    $Libro = new Libro("Esta", "David", "Gero", "twenty");
-    echo $Libro->mostrarInfo();
+    #$Libro = new Libro("Esta", "David", "Gero", "twenty");
+    #echo $Libro->mostrarInfo();
 ?>

@@ -1,3 +1,9 @@
+<?php 
+    require_once('Libro.php');
+    require_once('Socio.php');
+    require_once('Prestamo.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +15,16 @@
 <body>
     <h1 class="h1">Hola</h1>
     <p class="p">
-        <?php 
-            require_once('Libro.php') 
-        ?>
+    <?php 
+        $Libro1 = new Libro("Esta", "David", "Gero", "Twenty"); 
+        echo $Libro1->mostrarInfo();
+
+        $Socio1 = new Socio("esta", "david1", "gero@gmail.com");
+        echo "<br>" . $Socio1->mostrarInfo();
+
+        $Prestamo = new Prestamo($Socio1, $Socio1, "1", "2");
+        echo "<br>" . $Prestamo->mostrarDetalles();
+    ?>
     </p>
 </body>
 </html>
