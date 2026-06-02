@@ -23,6 +23,7 @@
         echo "<br>" . $Socio1->mostrarInfo();
 
         $Prestamo = new Prestamo($Socio1, $Socio1, "1", "2");
+        echo "<br>";
         echo "<br>" . $Prestamo->mostrarDetalles();
     ?>
     </p>
