@@ -8,10 +8,14 @@
             $this->nombre = $nombre;
             $this->numSocio = $numSocio;
             $this->email = $email;
+        
         }
-
-        public function mostrarInfo() {
-            return "El nombre es: " . $this->nombre . "<br>" . "El numSocio es: " . $this->numSocio . "<br>" . "La email es: " . $this->email;
+        public function mostrarNombre(){
+            return $this->nombre;
+        }
+    
+        public function mostrarNumeroSocio(){
+            return $this->numSocio;
         }
     }
     #$Socio = new Socio("Esta", "David", "Gero");

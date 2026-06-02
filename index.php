@@ -13,16 +13,14 @@
     <title>Index</title>
 </head>
 <body>
-    <h1 class="h1">Hola</h1>
+    <h1 class="h1">Hola Causa</h1>
     <p class="p">
     <?php 
-        $Libro1 = new Libro("Esta", "David", "Gero", "Twenty"); 
-        echo $Libro1->mostrarInfo();
+        $Libro1 = new Libro("Esta", "David", "Gero", "Twenty");
 
         $Socio1 = new Socio("esta", "david1", "gero@gmail.com");
-        echo "<br>" . $Socio1->mostrarInfo();
 
-        $Prestamo = new Prestamo($Socio1, $Socio1, "1", "2");
+        $Prestamo = new Prestamo($Socio1, $Libro1, "1", "2");
         echo "<br>";
         echo "<br>" . $Prestamo->mostrarDetalles();
     ?>
