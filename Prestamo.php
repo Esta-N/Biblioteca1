@@ -23,7 +23,8 @@
             echo "Nombre: " . $this->socio->mostrarNombre() . "<br>";
             echo "Numero: " . $this->socio->mostrarNumeroSocio() . "<br>";
             echo " Prestamo: $this->fechaPrestamo " . "<br>";
-            echo " Devolucion: $this->fechaDevolucion " . "<br>";              
+            echo " Devolucion: $this->fechaDevolucion " . "<br>";
+            echo "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ <br>";     
         }
     }
 ?>
