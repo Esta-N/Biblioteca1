@@ -8,6 +8,12 @@
     $Socio1 = new Socio("esta", "david1", "gero@gmail.com");
 
     $Prestamo1 = new Prestamo($Socio1, $Libro1, "1", "2");
+
+    $LibroReal1 = new Libro("El Divino", "Los Therians", 1865, 420);
+
+    $LibroReal2 = new Libro("El Dio", "Dio Brando", 1337, 1337);
+
+    $LibroReal3 = new Libro("El", "yo", "Ayer", 69);
 ?>
 
 
@@ -22,29 +28,85 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar bg-body-secondary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">Biblioteca</a>
-            <div class="nav-links">
-                <li class="nav-item btn btn-secondary">
-                    <a class="nav-link" href="indexLibros.php">Libros</a>
-                </li>
+    <header>
+        <nav class="navbar bg-body-secondary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.php">Biblioteca</a>
+                <div class="nav-links">
+                    <li class="nav-item btn btn-secondary">
+                        <a class="nav-link" href="indexLibros.php">Libros</a>
+                    </li>
 
-                <li class="nav-item btn btn-secondary">
-                    <a class="nav-link" href="indexPrestamos.php">Prestamos</a>
-                </li>
-                
-                <li class="nav-item btn btn-secondary">
-                    <a class="nav-link" href="indexSocios.php">Socios</a>
-                </li>
+                    <li class="nav-item btn btn-secondary">
+                        <a class="nav-link" href="indexPrestamos.php">Prestamos</a>
+                    </li>
+                    
+                    <li class="nav-item btn btn-secondary">
+                        <a class="nav-link" href="indexSocios.php">Socios</a>
+                    </li>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <h1 class="h1">Libros</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="card">
+                    <img src="img/libroN1.jpg" alt="Libro #1" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Libro real #1</h5>
+                        <p class="card-text">
+                            <?php
+                                echo "Titulo: " . $LibroReal1->mostrarTitulo() . "<br>";
+                                echo "Autor: " . $LibroReal1->mostrarAutor() . "<br>";
+                                echo "Fecha de publicacion: " . $LibroReal1->mostrarFecha() . "<br>";
+                                echo "Cantidad de paginas: " . $LibroReal1->mostrarPaginas() . "<br>";
+                            ?>
+                        </p>
+                        <a href="#" class="btn btn-primary">Ver Libro</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card">
+                    <img src="img/libroN2.png" alt="Libro #1" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Libro real #2</h5>
+                        <p class="card-text">
+                            <?php
+                                echo "Titulo: " . $LibroReal2->mostrarTitulo() . "<br>";
+                                echo "Autor: " . $LibroReal2->mostrarAutor() . "<br>";
+                                echo "Fecha de publicacion: " . $LibroReal2->mostrarFecha() . "<br>";
+                                echo "Cantidad de paginas: " . $LibroReal2->mostrarPaginas() . "<br>";
+                            ?>
+                        </p>
+                        <a href="#" class="btn btn-primary">Ver Libro</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card">
+                    <img src="img/libroN3.png" alt="Libro #1" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Libro real #3</h5>
+                        <p class="card-text">
+                            <?php
+                                echo "Titulo: " . $LibroReal3->mostrarTitulo() . "<br>";
+                                echo "Autor: " . $LibroReal3->mostrarAutor() . "<br>";
+                                echo "Fecha de publicacion: " . $LibroReal3->mostrarFecha() . "<br>";
+                                echo "Cantidad de paginas: " . $LibroReal3->mostrarPaginas() . "<br>";
+                            ?>
+                        </p>
+                        <a href="#" class="btn btn-primary">Ver Libro</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
-    <h1 class="h1">Hola Causa</h1>
-    <p class="p">
-    <?php 
-        echo "<br>" . $Libro1->mostrarTitulo();
-     ?>
-    </p>
+    </div>
+
 </body>
 </html>

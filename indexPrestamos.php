@@ -22,24 +22,26 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar bg-body-secondary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">Biblioteca</a>
-            <div class="nav-links">
-                <li class="nav-item btn btn-secondary">
-                    <a class="nav-link" href="indexLibros.php">Libros</a>
-                </li>
-
-                <li class="nav-item btn btn-secondary">
-                    <a class="nav-link" href="indexPrestamos.php">Prestamos</a>
-                </li>
-                
-                <li class="nav-item btn btn-secondary">
-                    <a class="nav-link" href="indexSocios.php">Socios</a>
-                </li>
+    <header>
+            <nav class="navbar bg-body-secondary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.php">Biblioteca</a>
+                    <div class="nav-links">
+                        <li class="nav-item btn btn-secondary">
+                            <a class="nav-link" href="indexLibros.php">Libros</a>
+                        </li>
+                        
+                    <li class="nav-item btn btn-secondary">
+                        <a class="nav-link" href="indexPrestamos.php">Prestamos</a>
+                    </li>
+                    
+                    <li class="nav-item btn btn-secondary">
+                        <a class="nav-link" href="indexSocios.php">Socios</a>
+                    </li>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
     
 </body>
 </html>
