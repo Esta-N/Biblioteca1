@@ -27,15 +27,15 @@
                 <a class="navbar-brand" href="index.php">Biblioteca</a>
                 <div class="nav-links">
                     <li class="nav-item btn btn-secondary">
-                        <a class="nav-link" href="indexLibros.php">Libros</a>
-                    </li>
-
-                    <li class="nav-item btn btn-secondary">
-                        <a class="nav-link" href="indexPrestamos.php">Prestamos</a>
+                        <a class="nav-link" href="viewLibros.php">Libros</a>
                     </li>
                     
                     <li class="nav-item btn btn-secondary">
-                        <a class="nav-link" href="indexSocios.php">Socios</a>
+                        <a class="nav-link" href="viewSocios.php">Socios</a>
+                    </li>
+                        
+                    <li class="nav-item btn btn-secondary">
+                        <a class="nav-link" href="viewPrestamos.php">Prestamos</a>
                     </li>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Libros</h5>
                         <p class="card-text">Libros</p>
-                        <a href="indexLibros.php" class="btn btn-primary">Ver Libros</a>
+                        <a href="viewLibros.php" class="btn btn-primary">Ver Libros</a>
                     </div>   
                 </div>
             </div>
@@ -61,7 +61,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Socios</h5>
                         <p class="card-text">Socios</p>
-                        <a href="indexSocios.php" class="btn btn-primary">Ver Socios</a>
+                        <a href="viewSocios.php" class="btn btn-primary">Ver Socios</a>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Prestamos</h5>
                         <p class="card-text">Prestamos</p>
-                        <a href="indexPrestamos.php" class="btn btn-primary">Ver Prestamos</a>
+                        <a href="viewPrestamos.php" class="btn btn-primary">Ver Prestamos</a>
                     </div>
                 </div>
             </div>

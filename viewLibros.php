@@ -9,11 +9,11 @@
 
     $Prestamo1 = new Prestamo($Socio1, $Libro1, "1", "2");
 
-    $LibroReal1 = new Libro("El Divino", "Los Therians", 1865, 420);
+    $LibroReal1 = new Libro("El Divino", "Los Therians", "2/2/1865", 420);
 
-    $LibroReal2 = new Libro("El Dio", "Dio Brando", 1337, 1337);
+    $LibroReal2 = new Libro("El Dio", "Dio Brando", "13/03/1907", 1337);
 
-    $LibroReal3 = new Libro("El", "yo", "Ayer", 69);
+    $LibroReal3 = new Libro("El Squirtle", "Esta-N", "27/02/1996", "cero cero 7");
 ?>
 
 
@@ -34,15 +34,15 @@
                 <a class="navbar-brand" href="index.php">Biblioteca</a>
                 <div class="nav-links">
                     <li class="nav-item btn btn-secondary">
-                        <a class="nav-link" href="indexLibros.php">Libros</a>
+                        <a class="nav-link" href="viewLibros.php">Libros</a>
                     </li>
 
                     <li class="nav-item btn btn-secondary">
-                        <a class="nav-link" href="indexPrestamos.php">Prestamos</a>
+                        <a class="nav-link" href="viewPrestamos.php">Prestamos</a>
                     </li>
                     
                     <li class="nav-item btn btn-secondary">
-                        <a class="nav-link" href="indexSocios.php">Socios</a>
+                        <a class="nav-link" href="viewSocios.php">Socios</a>
                     </li>
                 </div>
             </div>

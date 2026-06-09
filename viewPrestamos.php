@@ -23,27 +23,25 @@
 </head>
 <body>
     <header>
-        <nav class="navbar bg-body-secondary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.php">Biblioteca</a>
-                <div class="nav-links">
+            <nav class="navbar bg-body-secondary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.php">Biblioteca</a>
+                    <div class="nav-links">
+                        <li class="nav-item btn btn-secondary">
+                            <a class="nav-link" href="viewLibros.php">Libros</a>
+                        </li>
+                        
                     <li class="nav-item btn btn-secondary">
-                        <a class="nav-link" href="indexLibros.php">Libros</a>
+                        <a class="nav-link" href="viewPrestamos.php">Prestamos</a>
                     </li>
                     
                     <li class="nav-item btn btn-secondary">
-                        <a class="nav-link" href="indexPrestamos.php">Prestamos</a>
-                    </li>
-                    
-                    <li class="nav-item btn btn-secondary">
-                        <a class="nav-link" href="indexSocios.php">Socios</a>
+                        <a class="nav-link" href="viewSocios.php">Socios</a>
                     </li>
                 </div>
             </div>
         </nav>
     </header>
-
-    <h1 class="h1">Hola Causa</h1>
     
 </body>
 </html>
