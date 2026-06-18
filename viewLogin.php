@@ -20,27 +20,25 @@
 
         <h2 class="text-center mb-4">Login</h2>
 
-        <form>
+        <form action="ControllerLogin.php" target="_self" method="post">
 
             <div class="mb-3">
                 <label class="form-label">Nombre</label>
-                <input type="text" class="form-control" placeholder="David">
+                <input type="text" class="form-control" placeholder="David" name="usuario">
             </div>
 
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <label class="form-label">Email</label>
-                <input type="email" class="form-control" placeholder="Generico@gmail.com">
-            </div>
+                <input type="email" class="form-control" placeholder="Generico@gmail.com" id="">
+            </div> -->
 
             <div class="mb-3">
                 <label class="form-label">Contraseña</label>
-                <input type="password" class="form-control" placeholder="123">
+                <input type="password" class="form-control" placeholder="123" name="password">
             </div>
             <img src="img/Padentro.jpg" width="300">
              
-            <a href="index.php" class="btn btn-primary w-100">
-                Ingresar
-            </a>
+            <input type="submit" class="btn btn-primary w-100" value="Enviar"></input>
 
         </form>
 
