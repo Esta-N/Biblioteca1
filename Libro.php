@@ -1,15 +1,20 @@
 <?php
     class Libro {
+        private ?int $id;
         public $titulo;
         public $autor;
         public $fechaPublicacion;
         public $cantidadPaginas;
 
-        public function __construct($titulo, $autor, $fechaPublicacion, $cantidadPaginas) {
+        public function __construct($titulo, $autor, $fechaPublicacion, $cantidadPaginas, ?int $id = null) {
+            $this->id = $id;
             $this->titulo = $titulo;
             $this->autor = $autor;
             $this->fecha = $fechaPublicacion;
             $this->paginas = $cantidadPaginas;
+        }
+        public function mostrarId() {
+            return $this->id;
         }
 
         public function mostrarTitulo() {
