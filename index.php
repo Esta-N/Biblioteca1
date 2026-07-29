@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Libros</h5>
                         <p class="card-text">Libros</p>
-                        <a href="viewLibros.php" class="btn btn-primary">Ver Libros</a>
+                        <a href="listado.php" class="btn btn-primary">Ver Libros</a>
                     </div>   
                 </div>
             </div>

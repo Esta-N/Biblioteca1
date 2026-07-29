@@ -22,7 +22,9 @@ foreach ($filas as $fila) {
 require 'header.php';
 ?>
 
-<h1 class="h3 mb-4">Listado de libros</h1>
+<div class="d-flex flex-column align-items-center gap-3 mb-4">
+    <h1 class="h3 m-0">Listado de libros</h1>
+</div>
 
 <table class="table table-striped table-hover align-middle bg-white shadow-sm">
     <thead class="table-dark">
@@ -46,7 +48,7 @@ require 'header.php';
                    class="btn btn-sm btn-outline-primary">Editar</a>
                 <a href="eliminar.php?id=<?= $libro->mostrarId() ?>"
                    class="btn btn-sm btn-outline-danger"
-                   onclick="return confirm('¿Eliminar «<?= htmlspecialchars($libro->getTitulo()) ?>»? No hay vuelta atrás.')">
+                   onclick="return confirm('¿Eliminar «<?= htmlspecialchars($libro->mostrarTitulo()) ?>»? No hay vuelta atrás.')">
                    Eliminar
                 </a>
             </td>
@@ -62,5 +64,7 @@ require 'header.php';
         <?php endif; ?>
     </tbody>
 </table>
-
+<div class="d-flex flex-column align-items-center gap-3 mb-4">
+    <a href="crear.php" class="btn btn-success">+ Nuevo libro</a>
+</div>
 <?php require 'footer.php'; ?>

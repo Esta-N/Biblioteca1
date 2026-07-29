@@ -15,7 +15,7 @@
                 <a class="navbar-brand" href="index.php">Biblioteca</a>
                 <div class="nav-links">
                     <li class="nav-item btn btn-secondary">
-                        <a class="nav-link" href="viewLibros.php">Libros</a>
+                        <a class="nav-link" href="listado.php">Libros</a>
                     </li>
                     
                     <li class="nav-item btn btn-secondary">
