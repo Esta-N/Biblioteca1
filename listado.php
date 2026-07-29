@@ -3,7 +3,7 @@ require 'conexion.php';
 require 'Libro.php';
 
 // 1) Pedimos las filas a MySQL
-$stmt  = $pdo->query("SELECT * FROM libross ORDER BY titulo");
+$stmt  = $pdo->query("SELECT * FROM libro ORDER BY titulo");
 $filas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // 2) Convertimos cada fila (array) en un objeto Libro
