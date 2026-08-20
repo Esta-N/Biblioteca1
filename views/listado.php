@@ -1,6 +1,6 @@
 <?php
-require 'conexion.php';
-require 'Libro.php';
+require '../conexion.php';
+require '../models/Libro.php';
 
 // 1) Pedimos las filas a MySQL
 $stmt  = $pdo->query("SELECT * FROM libros ORDER BY titulo");
@@ -19,7 +19,7 @@ foreach ($filas as $fila) {
 }
 // A partir de acá: solo objetos. Los arrays quedaron atrás.
 
-require 'header.php';
+require '../views/header.php';
 ?>
 
 <div class="d-flex flex-column align-items-center gap-3 mb-4">
@@ -67,4 +67,4 @@ require 'header.php';
 <div class="d-flex flex-column align-items-center gap-3 mb-4">
     <a href="crear.php" class="btn btn-success">+ Nuevo libro</a>
 </div>
-<?php require 'footer.php'; ?>
+<?php require '../views/footer.php'; ?>

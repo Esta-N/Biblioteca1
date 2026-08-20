@@ -1,16 +1,4 @@
-<?php 
-    require_once('Libro.php');
-    require_once('Socio.php');
-    require_once('Prestamo.php');
-
-        $Libro1 = new Libro("Esta", "David", "Gero", "Twenty");
-
-        $Socio1 = new Socio("esta", "david1", "gero@gmail.com");
-
-        $Prestamo1 = new Prestamo($Socio1, $Libro1, "1", "2");
-?>
-
-    <?php include('header.php'); ?>
+<?php include('views/header.php'); ?>
     <h1 class="h1">Hola Causa</h1>
     <div class="container">
         <div class="row">
@@ -48,4 +36,4 @@
             </div>
         </div>
     </div>
-    <?php include('footer.php'); ?>
+    <?php include('views/footer.php'); ?>
