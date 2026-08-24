@@ -1,24 +1,4 @@
 <?php
-require '../conexion.php';
-require '../models/Libro.php';
-
-// 1) Pedimos las filas a MySQL
-$stmt  = $pdo->query("SELECT * FROM libros ORDER BY titulo");
-$filas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// 2) Convertimos cada fila (array) en un objeto Libro
-$libros = [];
-foreach ($filas as $fila) {
-    $libros[] = new Libro(
-        $fila['titulo'],
-        $fila['autor'],
-        $fila['anio_publicacion'],
-        $fila['cantidad_paginas'],
-        $fila['id']
-    );
-}
-// A partir de acá: solo objetos. Los arrays quedaron atrás.
-
 require '../views/header.php';
 ?>
 
