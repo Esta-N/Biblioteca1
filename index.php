@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/controllers/LibroController.php';
+require __DIR__ . '../controllers/LibroController.php';
 
 $accion = $_GET['accion'] ?? 'listar';
 
@@ -8,7 +8,7 @@ switch ($accion) {
         listarLibros();
         break;
     case 'formCrear':
-        require __DIR__ . '/views/libros/form.php';
+        require __DIR__ . '/views/form.php';
         break;
     case 'crear':
         crearLibro();
@@ -25,13 +25,13 @@ switch ($accion) {
 }
 ?>
 
-<?php include('views/header.php'); ?>
+<?php include('header.php'); ?>
     <h1 class="h1">Hola Causa</h1>
     <div class="container">
         <div class="row">
             <div class="col-4">
                 <div class="card">
-                    <img src="img/books.jpg" class="card-img-top" alt="libros">
+                    <img src="../img/books.jpg" class="card-img-top" alt="libros">
                     <div class="card-body">
                         <h5 class="card-title">Libros</h5>
                         <p class="card-text">Libros</p>
@@ -42,7 +42,7 @@ switch ($accion) {
             
             <div class="col-4">
                 <div class="card">
-                    <img src="img/socio.png" class="card-img-top" alt="libros">
+                    <img src="../img/socio.png" class="card-img-top" alt="libros">
                     <div class="card-body">
                         <h5 class="card-title">Socios</h5>
                         <p class="card-text">Socios</p>
@@ -53,7 +53,7 @@ switch ($accion) {
             
             <div class="col-4">
                 <div class="card">
-                    <img src="img/prestamo.jpg" class="card-img-top" alt="libros">
+                    <img src="../img/prestamo.jpg" class="card-img-top" alt="libros">
                     <div class="card-body">
                         <h5 class="card-title">Prestamos</h5>
                         <p class="card-text">Prestamos</p>
@@ -63,4 +63,4 @@ switch ($accion) {
             </div>
         </div>
     </div>
-    <?php include('views/footer.php'); ?>
+    <?php include('footer.php'); ?>

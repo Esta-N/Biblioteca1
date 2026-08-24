@@ -39,8 +39,11 @@
                 $filas = $stmt->fetchAll();
         
                 $libros = [];
+                // echo '<pre>';
+                // var_dump($filas);
+                // echo '</pre>';
                 foreach ($filas as $f) {
-                    $libros[] = new Libro($f['id'], $f['titulo'], $f['autor'], $f['fecha'], $f['paginas']);
+                    $libros[] = new Libro($f['titulo'], $f['autor'], $f['anio_publicacion'], $f['cantidad_paginas'], $f['id']);
                 }
                 return $libros;
             }
