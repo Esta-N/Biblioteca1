@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/header.php';
+require __DIR__ . '/../header.php';
 ?>
 
 <div class="d-flex flex-column align-items-center gap-3 mb-4">
@@ -47,4 +47,4 @@ require __DIR__ . '/header.php';
 <div class="d-flex flex-column align-items-center gap-3 mb-4">
     <a href="crear.php" class="btn btn-success">+ Nuevo libro</a>
 </div>
-<?php require __DIR__ . '/footer.php'; ?>
+<?php require __DIR__ . '/../footer.php'; ?>

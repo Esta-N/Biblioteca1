@@ -1,17 +1,17 @@
 <?php
     class Libro {
         private ?int $id;
-        public $titulo;
-        public $autor;
-        public $fechaPublicacion;
-        public $cantidadPaginas;
+        public string $titulo;
+        public string $autor;
+        public int $fechaPublicacion;
+        public int $cantidadPaginas;
 
-        public function __construct($titulo, $autor, $fechaPublicacion, $cantidadPaginas, ?int $id = null) {
+        public function __construct(string $titulo, string $autor, int $fechaPublicacion, int $cantidadPaginas, ?int $id = null) {
             $this->id = $id;
             $this->titulo = $titulo;
             $this->autor = $autor;
-            $this->fecha = $fechaPublicacion;
-            $this->paginas = $cantidadPaginas;
+            $this->fechaPublicacion = $fechaPublicacion;
+            $this->cantidadPaginas = $cantidadPaginas;
         }
         public function mostrarId() {
             return $this->id;
@@ -26,11 +26,11 @@
         }
 
         public function mostrarFecha() {
-            return $this->fecha;
+            return $this->fechaPublicacion;
         }
 
         public function mostrarPaginas() {
-            return $this->paginas;
+            return $this->cantidadPaginas;
         }
     // Metodos nuevos
             public static function listar($pdo) {
@@ -48,18 +48,18 @@
                 return $libros;
             }
         
-            public static function crear($pdo, $titulo, $autor, $fecha, $paginas) {
+            public static function crear($pdo, $titulo, $autor, $fechaPublicacion, $cantidadPaginas) {
                 $stmt = $pdo->prepare(
                     "INSERT INTO libros (titulo, autor, imagen) VALUES (?, ?, ?)"
                 );
-                return $stmt->execute([$titulo, $autor, $fecha, $paginas]);
+                return $stmt->execute([$titulo, $autor, $fechaPublicacion, $cantidadPaginas]);
             }
         
-            public static function actualizar($pdo, $id, $titulo, $autor, $fecha, $paginas) {
+            public static function actualizar($pdo, $id, $titulo, $autor, $fechaPublicacion, $cantidadPaginas) {
                 $stmt = $pdo->prepare(
-                    "UPDATE libros SET titulo=?, autor=?, imagen=?, fecha=?, paginas=? WHERE id=?"
+                    "UPDATE libros SET titulo=?, autor=?, imagen=?, fechaPublicacion=?, cantidadPaginas=? WHERE id=?"
                 );
-                return $stmt->execute($f['id'], $f['titulo'], $f['autor'],$f['fecha'],$f['paginas']);
+                return $stmt->execute(['id'], ['titulo'], ['autor'],['fechaPublicacion'],['cantidadPaginas']);
             }
         
             public static function eliminar($pdo, $id) {
@@ -71,7 +71,7 @@
                 $stmt = $pdo->prepare("SELECT * FROM libros WHERE id=?");
                 $stmt->execute([$id]);
                 $f = $stmt->fetch();
-                return $f ? new Libro($f['id'], $f['titulo'], $f['autor'],$f['fecha'],$f['paginas']) : null;
+                return $f ? new Libro($f['id'], $f['titulo'], $f['autor'],$f['fechaPublicacion'],$f['cantidadPaginas']) : null;
             }
         }
 ?>

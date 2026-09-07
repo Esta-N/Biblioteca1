@@ -5,7 +5,7 @@ require __DIR__ . '/../conexion.php'; // expone $pdo
 function listarLibros() {
     global $pdo;
     $libros = Libro::listar($pdo);
-    require __DIR__ . '/../views/listado.php';
+    require __DIR__ . '/../views/libros/listado.php';
 }
 
 function crearLibro() {
