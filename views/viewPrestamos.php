@@ -1,7 +1,7 @@
 <?php 
-    require_once('Libro.php');
-    require_once('Socio.php');
-    require_once('Prestamo.php');
+    require_once('../models/Libro.php');
+    require_once('../models/Socio.php');
+    require_once('../models/Prestamo.php');
 
     #$Prestamo1 = new Prestamo($Socio1, $Libro1, "1", "2");
 
