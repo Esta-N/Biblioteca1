@@ -1,6 +1,6 @@
 <?php
 require 'conexion.php';
-require 'Libro.php';
+require 'models/Libro.php';
 
 // ─── Momento 2: llegó el formulario con los cambios ───
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -55,7 +55,7 @@ $libro = new Libro(
     $fila['id']
 );
 
-require 'header.php';
+require 'views/header.php';
 ?>
 
 <div class="mx-auto" style="max-width: 600px;">
@@ -108,4 +108,4 @@ require 'header.php';
     </form>
 </div>
 
-<?php require 'footer.php'; ?>
+<?php require 'views/footer.php'; ?>

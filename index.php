@@ -16,8 +16,8 @@ switch ($accion) {
     case 'formEditar':
         formEditarLibro();
         break;
-    case 'Editar':
-        formEditarLibro();
+    case 'editar':
+        editar();
         break;
     case 'eliminar':
         eliminarLibro();
