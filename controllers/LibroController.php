@@ -56,7 +56,7 @@ function crearLibro() {
         }
     }
     if (empty($errores)) {
-        Libro::crear($pdo, $titulo, $autor, (int)$anioPublicacion, (int)$cantidadPaginas, $_FILES['portada']['name'] ?? null);
+        Libro::crear($pdo, $titulo, $autor, (int)$anioPublicacion, (int)$cantidadPaginas, $nombrePortada ?? null);
         header('Location: index.php?accion=listar');
     }
     exit;
@@ -78,7 +78,9 @@ function editar() {
         return;
     }
 
+    // Arranco asumiendo que sigue la de antes
         // 1) ¿Subió algo y salió bien?
+    $nombrePortada = $_POST['portada_actual'] ?: null;
     if (isset($_FILES['portada']) && $_FILES['portada']['error'] === UPLOAD_ERR_OK) {
 
         // 2) ¿La extensión está permitida?
@@ -103,7 +105,7 @@ function editar() {
         }
     }
     if (empty($errores)) {
-    Libro::editar($pdo, $id, $titulo, $autor, (int)$anioPublicacion, (int)$cantidadPaginas, $_FILES['portada']['name'] ?? null);
+    Libro::editar($pdo, $id, $titulo, $autor, (int)$anioPublicacion, (int)$cantidadPaginas, $nombrePortada ?? null);
     header('Location: index.php?accion=listar');
     }
     exit;

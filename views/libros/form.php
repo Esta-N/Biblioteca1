@@ -34,9 +34,11 @@
 
   <div class="mb-3">
     <label class="form-label">Tapa del libro</label>
-    <input type="file" name="portada" class="form-control" accept="image/*">
+    <input type="file" name="portada" class="form-control" accept="image/*" value="<?= isset($libro) ? ($libro->mostrarPortada()) : '' ?>">
   </div>
 
+  <input type="hidden" name="portada_actual"
+       value="<?= htmlspecialchars($libro->mostrarPortada()) ?>">
   <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
 
