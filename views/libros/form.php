@@ -32,6 +32,11 @@
     <input type="number" name="cantidad_paginas" class="form-control" value="<?= isset($libro) ? htmlspecialchars($libro->mostrarPaginas()) : '' ?>">
   </div>
 
+  <div class="mb-3">
+    <label class="form-label">Tapa del libro</label>
+    <input type="file" name="portada" class="form-control" accept="image/*">
+  </div>
+
   <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
 

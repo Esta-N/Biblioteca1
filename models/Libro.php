@@ -5,13 +5,15 @@ class Libro {
     public string $autor;
     public string $fechaPublicacion;
     public int $cantidadPaginas;
+    public $portada;
 
-    public function __construct(string $titulo, string $autor, string $fechaPublicacion, int $cantidadPaginas, ?int $id = null) {
+    public function __construct(string $titulo, string $autor, string $fechaPublicacion, int $cantidadPaginas, ?int $id = null, $portada = null) {
         $this->id = $id;
         $this->titulo = $titulo;
         $this->autor = $autor;
         $this->fechaPublicacion = $fechaPublicacion;
         $this->cantidadPaginas = $cantidadPaginas;
+        $this->portada = $portada;
     }
 
     public function mostrarId() {
@@ -33,6 +35,9 @@ class Libro {
     public function mostrarPaginas() {
         return $this->cantidadPaginas;
     }
+    public function mostrarPortada() {
+        return $this->portada;
+    }
 
     public static function listar($pdo) {
         $stmt = $pdo->prepare("SELECT * FROM libros ORDER BY titulo");
@@ -41,23 +46,23 @@ class Libro {
 
         $libros = [];
         foreach ($filas as $f) {
-            $libros[] = new Libro($f['titulo'], $f['autor'], $f['anio_publicacion'], (int)$f['cantidad_paginas'], (int)$f['id']);
+            $libros[] = new Libro($f['titulo'], $f['autor'], $f['anio_publicacion'], (int)$f['cantidad_paginas'], (int)$f['id'], $f['portada']);
         }
         return $libros;
     }
 
-    public static function crear($pdo, string $titulo, string $autor, int $anioPublicacion, int $cantidadPaginas) {
+    public static function crear($pdo, string $titulo, string $autor, int $anioPublicacion, int $cantidadPaginas, $portada = null) {
         $stmt = $pdo->prepare(
-            "INSERT INTO libros (titulo, autor, anio_publicacion, cantidad_paginas) VALUES (?, ?, ?, ?)"
+            "INSERT INTO libros (titulo, autor, anio_publicacion, cantidad_paginas, portada) VALUES (?, ?, ?, ?, ?)"
         );
-        return $stmt->execute([$titulo, $autor, $anioPublicacion, $cantidadPaginas]);
+        return $stmt->execute([$titulo, $autor, $anioPublicacion, $cantidadPaginas, $portada]);
     }
 
-    public static function editar($pdo, int $id, string $titulo, string $autor, int $anioPublicacion, int $cantidadPaginas) {
+    public static function editar($pdo, int $id, string $titulo, string $autor, int $anioPublicacion, int $cantidadPaginas, $portada = null) {
         $stmt = $pdo->prepare(
-            "UPDATE libros SET titulo=?, autor=?, anio_publicacion=?, cantidad_paginas=? WHERE id=?"
+            "UPDATE libros SET titulo=?, autor=?, anio_publicacion=?, cantidad_paginas=?, portada=? WHERE id=?"
         );
-        return $stmt->execute([$titulo, $autor, $anioPublicacion, $cantidadPaginas, $id]);
+        return $stmt->execute([$titulo, $autor, $anioPublicacion, $cantidadPaginas, $portada, $id]);
     }
 
     public static function eliminar($pdo, int $id) {
@@ -69,7 +74,7 @@ class Libro {
         $stmt = $pdo->prepare("SELECT * FROM libros WHERE id=?");
         $stmt->execute([$id]);
         $f = $stmt->fetch();
-        return $f ? new Libro($f['titulo'], $f['autor'], $f['anio_publicacion'], (int)$f['cantidad_paginas'], (int)$f['id']) : null;
+        return $f ? new Libro($f['titulo'], $f['autor'], $f['anio_publicacion'], (int)$f['cantidad_paginas'], (int)$f['id'], $f['portada']) : null;
     }
 }
 ?>

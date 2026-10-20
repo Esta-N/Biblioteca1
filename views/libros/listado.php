@@ -13,6 +13,7 @@ require __DIR__ . '/../header.php';
             <th>Autor</th>
             <th>Año</th>
             <th>Páginas</th>
+            <th>Portada</th>
             <th class="text-end">Acciones</th>
         </tr>
     </thead>
@@ -23,6 +24,15 @@ require __DIR__ . '/../header.php';
             <td><?= htmlspecialchars($libro->mostrarAutor()) ?></td>
             <td><?= $libro->mostrarFecha() ?></td>
             <td><?= $libro->mostrarPaginas() ?></td>
+            <td>
+                <?php if ($libro->mostrarPortada()): ?>
+                    <img src="img/portadas/<?= htmlspecialchars($libro->mostrarPortada()) ?>"
+                    alt="Tapa de <?= htmlspecialchars($libro->mostrarTitulo()) ?>"
+                    class="img-thumbnail" style="width:60px">
+                    <?php else: ?>
+                        <span class="badge text-bg-secondary">Sin tapa</span>
+                    <?php endif; ?>
+            </td>
             <td class="text-end">
                 <a href="index.php?accion=formEditar&id=<?php echo $libro->mostrarId()?>"
                    class="btn btn-sm btn-outline-primary">Editar</a>
