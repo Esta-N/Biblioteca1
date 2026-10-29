@@ -46,7 +46,14 @@ class Libro {
 
         $libros = [];
         foreach ($filas as $f) {
-            $libros[] = new Libro($f['titulo'], $f['autor'], $f['anio_publicacion'], (int)$f['cantidad_paginas'], (int)$f['id'], $f['portada']);
+           $libros[] = new Libro(
+    $f['titulo'],
+    $f['autor'],
+    $f['anio_publicacion'],
+    (int)$f['cantidad_paginas'],
+    (int)$f['id'],
+    $f['portada'] ?? null
+);
         }
         return $libros;
     }

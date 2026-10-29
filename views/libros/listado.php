@@ -1,60 +1,87 @@
 <?php
 require __DIR__ . '/../header.php';
+// Carga el encabezado, el fondo y los estilos.
 ?>
 
-<div class="d-flex flex-column align-items-center gap-3 mb-4">
-    <h1 class="h1 m-0">Listado de libros</h1>
-</div>
+<h1 class="mb-4">Catálogo de libros</h1>
 
-<table class="table table-striped table-hover align-middle bg-white shadow-sm">
-    <thead class="table-dark">
-        <tr>
-            <th>Título</th>
-            <th>Autor</th>
-            <th>Año</th>
-            <th>Páginas</th>
-            <th>Portada</th>
-            <th class="text-end">Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($libros as $libro): ?>
-        <tr>
-            <td><?= htmlspecialchars($libro->mostrarTitulo()) ?></td>
-            <td><?= htmlspecialchars($libro->mostrarAutor()) ?></td>
-            <td><?= $libro->mostrarFecha() ?></td>
-            <td><?= $libro->mostrarPaginas() ?></td>
-            <td>
-                <?php if ($libro->mostrarPortada()): ?>
-                    <img src="img/portadas/<?= htmlspecialchars($libro->mostrarPortada()) ?>"
-                    alt="Tapa de <?= htmlspecialchars($libro->mostrarTitulo()) ?>"
-                    class="img-thumbnail" style="width:60px">
-                    <?php else: ?>
-                        <span class="badge text-bg-secondary">Sin tapa</span>
-                    <?php endif; ?>
-            </td>
-            <td class="text-end">
-                <a href="index.php?accion=formEditar&id=<?php echo $libro->mostrarId()?>"
-                   class="btn btn-sm btn-outline-primary">Editar</a>
-                <a href="index.php?accion=eliminar&id=<?= $libro->mostrarId()?>"
-                   class="btn btn-sm btn-outline-danger"
-                   onclick="return confirm('¿Eliminar «<?= htmlspecialchars($libro->mostrarTitulo())?>»? No hay vuelta atrás.')">
-                   Eliminar
+<div class="catalogo">
+    <?php foreach ($libros as $libro): ?>
+
+        <?php
+        // Obtenemos la portada del libro actual.
+        $portada = $libro->mostrarPortada();
+
+        // Comprobamos que la portada tenga un nombre válido.
+        $rutaPortada = !empty($portada)
+            ? __DIR__ . '/../../img/portadas/' . basename($portada)
+            : null;
+
+        // Si la imagen existe, la usamos como fondo de la tarjeta.
+        $estiloPortada = ($rutaPortada && is_file($rutaPortada))
+            ? "background-image: url('/Biblioteca/img/portadas/"
+                . rawurlencode(basename($portada)) . "');"
+            : "";
+        ?>
+
+        <div
+            class="tarjeta tarjeta-libro"
+            style="<?= htmlspecialchars($estiloPortada, ENT_QUOTES, 'UTF-8') ?>"
+        >
+            <div class="contenido-tarjeta">
+
+                <h3>
+                    <?= htmlspecialchars($libro->mostrarTitulo()) ?>
+                </h3>
+
+                <p>
+                    <strong>Autor:</strong>
+                    <?= htmlspecialchars($libro->mostrarAutor()) ?>
+                </p>
+
+                <p>
+                    <strong>Año:</strong>
+                    <?= htmlspecialchars((string) $libro->mostrarFecha()) ?>
+                </p>
+
+                <p>
+                    <strong>Páginas:</strong>
+                    <?= htmlspecialchars((string) $libro->mostrarPaginas()) ?>
+                </p>
+
+                <a
+                    href="index.php?accion=formEditar&id=<?= urlencode((string) $libro->mostrarId()) ?>"
+                    class="btn btn-sm btn-primary"
+                >
+                    Editar
                 </a>
-            </td>
-        </tr>
-        <?php endforeach; ?>
 
-        <?php if (count($libros) === 0): ?>
-        <tr>
-            <td colspan="5" class="text-center text-muted py-4">
-                No hay libros cargados todavía. ¡Agregá el primero!
-            </td>
-        </tr>
-        <?php endif; ?>
-    </tbody>
-</table>
-<div class="d-flex flex-column align-items-center gap-3 mb-4">
-    <a href="index.php?accion=formCrear" class="btn btn-success">+ Nuevo libro</a>
+                <a
+                    href="index.php?accion=eliminar&id=<?= urlencode((string) $libro->mostrarId()) ?>"
+                    class="btn btn-sm btn-danger"
+                    onclick="return confirm('¿Seguro que querés eliminar este libro?')"
+                >
+                    Eliminar
+                </a>
+
+            </div>
+        </div>
+
+    <?php endforeach; ?>
 </div>
-<?php require __DIR__ . '/../footer.php'; ?>
+
+<?php if (count($libros) === 0): ?>
+    <p class="text-muted mt-3">
+        No hay libros cargados todavía.
+    </p>
+<?php endif; ?>
+
+<div class="mt-4">
+    <a href="index.php?accion=formCrear" class="btn btn-success">
+        + Nuevo libro
+    </a>
+</div>
+
+<?php
+require __DIR__ . '/../footer.php';
+?>
