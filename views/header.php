@@ -15,7 +15,7 @@
     >
 
     <!-- Estilos propios -->
-    <link rel="stylesheet" href="/Biblioteca/style.css">
+    <link rel="stylesheet" href="/bob1/style.css">
 
     <title>Biblioteca</title>
 </head>
@@ -39,7 +39,7 @@
                 <!-- Nombre de la biblioteca -->
                 <a
                     class="navbar-brand marca-biblioteca"
-                    href="/Biblioteca/index.php"
+                    href="/bob1/index.php"
                 >
                     <span class="icono-biblioteca">📖</span>
                     Biblioteca
@@ -69,7 +69,7 @@
                         <li class="nav-item">
                             <a
                                 class="nav-link boton-nav"
-                                href="/Biblioteca/index.php?accion=listar"
+                                href="/bob1/index.php?accion=listar"
                             >
                                 Libros
                             </a>
@@ -78,7 +78,7 @@
                         <li class="nav-item">
                             <a
                                 class="nav-link boton-nav"
-                                href="/Biblioteca/index.php?accion=listarSocios"
+                                href="/bob1/index.php?accion=listarSocios"
                             >
                                 Socios
                             </a>
@@ -87,7 +87,7 @@
                         <li class="nav-item">
                             <a
                                 class="nav-link boton-nav"
-                                href="/Biblioteca/index.php?accion=listarUsuarios"
+                                href="/bob1/index.php?accion=listarUsuarios"
                             >
                                 Usuarios
                             </a>
@@ -96,7 +96,7 @@
                         <li class="nav-item">
                             <a
                                 class="nav-link boton-nav"
-                                href="/Biblioteca/index.php?accion=listarPrestamos"
+                                href="/bob1/index.php?accion=listarPrestamos"
                             >
                                 Préstamos
                             </a>

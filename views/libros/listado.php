@@ -19,7 +19,7 @@ require __DIR__ . '/../header.php';
 
         // Si la imagen existe, la usamos como fondo de la tarjeta.
         $estiloPortada = ($rutaPortada && is_file($rutaPortada))
-            ? "background-image: url('/Biblioteca/img/portadas/"
+            ? "background-image: url('/bob1/img/portadas/"
                 . rawurlencode(basename($portada)) . "');"
             : "";
         ?>
