@@ -3,9 +3,9 @@ $prestamos = $prestamos ?? [];
 require __DIR__ . '/../header.php';
 ?>
 
-<main class="container py-4">
+<main class="container py-4 seccion-pagina seccion-prestamos">
     <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
-        <h1 class="m-0">Préstamos</h1>
+        <h1 class="h1">Préstamos</h1>
         <a href="/bob1/index.php?accion=formCrearPrestamo" class="btn btn-success">+ Nuevo préstamo</a>
     </div>
 

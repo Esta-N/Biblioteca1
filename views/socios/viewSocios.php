@@ -3,9 +3,9 @@ $socios = $socios ?? [];
 require __DIR__ . '/../header.php';
 ?>
 
-<main class="container py-4">
+<main class="container py-4 seccion-pagina seccion-socios">
     <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
-        <h1 class="m-0">Nuestros socios</h1>
+        <h1 class="h1">Nuestros socios</h1>
         <a href="/bob1/index.php?accion=formCrearSocio" class="btn btn-success">+ Nuevo socio</a>
     </div>
 

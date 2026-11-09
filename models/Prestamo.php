@@ -9,7 +9,8 @@ class Prestamo {
     public string $fechaPrestamo;
     public string $fechaDevolucion;
 
-    public function __construct(Socio $socio, Libro $libro, string $fechaPrestamo, string $fechaDevolucion, ?int $id = null) {
+    public function __construct(Socio $socio, Libro $libro, string $fechaPrestamo, string $fechaDevolucion, 
+    ?int $id = null) {
         $this->id = $id;
         $this->socio = $socio;
         $this->libro = $libro;
@@ -43,9 +44,12 @@ class Prestamo {
         $prestamos = [];
 
         foreach ($stmt->fetchAll() as $fila) {
-            $libro = new Libro($fila['titulo'], $fila['autor'], $fila['anio_publicacion'], (int)$fila['cantidad_paginas'], (int)$fila['libro_id']);
-            $socio = new Socio($fila['nombre'], (int)$fila['num_socio'], $fila['email'], (int)$fila['socio_id']);
-            $prestamos[] = new Prestamo($socio, $libro, $fila['fecha_prestamo'], $fila['fecha_devolucion'], (int)$fila['prestamo_id']);
+            $libro = new Libro($fila['titulo'], $fila['autor'], $fila['anio_publicacion'], 
+            (int)$fila['cantidad_paginas'], (int)$fila['libro_id']);
+            $socio = new Socio($fila['nombre'], (int)$fila['num_socio'], $fila['email'], 
+            (int)$fila['socio_id']);
+            $prestamos[] = new Prestamo($socio, $libro, $fila['fecha_prestamo'], $fila['fecha_devolucion'], 
+            (int)$fila['prestamo_id']);
         }
 
         return $prestamos;
@@ -67,18 +71,25 @@ class Prestamo {
             return null;
         }
 
-        $libro = new Libro($fila['titulo'], $fila['autor'], $fila['anio_publicacion'], (int)$fila['cantidad_paginas'], (int)$fila['libro_id']);
-        $socio = new Socio($fila['nombre'], (int)$fila['num_socio'], $fila['email'], (int)$fila['socio_id']);
-        return new Prestamo($socio, $libro, $fila['fecha_prestamo'], $fila['fecha_devolucion'], (int)$fila['prestamo_id']);
+        $libro = new Libro($fila['titulo'], $fila['autor'], $fila['anio_publicacion'], 
+        (int)$fila['cantidad_paginas'], (int)$fila['libro_id']);
+        $socio = new Socio($fila['nombre'], (int)$fila['num_socio'], $fila['email'], 
+        (int)$fila['socio_id']);
+        return new Prestamo($socio, $libro, $fila['fecha_prestamo'], $fila['fecha_devolucion'], 
+        (int)$fila['prestamo_id']);
     }
 
-    public static function crear($pdo, int $socioId, int $libroId, string $fechaPrestamo, string $fechaDevolucion) {
-        $stmt = $pdo->prepare("INSERT INTO prestamos (socio_id, libro_id, fecha_prestamo, fecha_devolucion) VALUES (?, ?, ?, ?)");
+    public static function crear($pdo, int $socioId, int $libroId, string $fechaPrestamo, 
+    string $fechaDevolucion) {
+        $stmt = $pdo->prepare("INSERT INTO prestamos (socio_id, libro_id, fecha_prestamo, fecha_devolucion) 
+        VALUES (?, ?, ?, ?)");
         return $stmt->execute([$socioId, $libroId, $fechaPrestamo, $fechaDevolucion]);
     }
 
-    public static function editar($pdo, int $id, int $socioId, int $libroId, string $fechaPrestamo, string $fechaDevolucion) {
-        $stmt = $pdo->prepare("UPDATE prestamos SET socio_id = ?, libro_id = ?, fecha_prestamo = ?, fecha_devolucion = ? WHERE id = ?");
+    public static function editar($pdo, int $id, int $socioId, int $libroId, string $fechaPrestamo, 
+    string $fechaDevolucion) {
+        $stmt = $pdo->prepare("UPDATE prestamos SET socio_id = ?, libro_id = ?, fecha_prestamo = ?, 
+        fecha_devolucion = ? WHERE id = ?");
         return $stmt->execute([$socioId, $libroId, $fechaPrestamo, $fechaDevolucion, $id]);
     }
 

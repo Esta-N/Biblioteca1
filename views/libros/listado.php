@@ -3,7 +3,8 @@ require __DIR__ . '/../header.php';
 // Carga el encabezado, el fondo y los estilos.
 ?>
 
-<h1 class="mb-4">Catálogo de libros</h1>
+<main class="container py-4 seccion-pagina seccion-libros">
+<h1 class="mb-4 h1">Catálogo de libros</h1>
 
 <div class="catalogo">
     <?php foreach ($libros as $libro): ?>
@@ -81,6 +82,7 @@ require __DIR__ . '/../header.php';
         + Nuevo libro
     </a>
 </div>
+</main>
 
 <?php
 require __DIR__ . '/../footer.php';

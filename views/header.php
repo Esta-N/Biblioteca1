@@ -22,13 +22,6 @@
 
 <body>
 
-    <!-- Fondo animado compartido: una sola imagen -->
-    <img
-        class="Cascada"
-        alt=""
-        aria-hidden="true"
-    >
-
     <!-- Encabezado y navegación -->
     <header class="encabezado">
 

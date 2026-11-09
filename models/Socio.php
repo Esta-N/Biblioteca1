@@ -39,27 +39,22 @@ class Socio {
 
         return $socios;
     }
-
     public static function crear($pdo, string $nombre, int $numSocio, string $email) {
         $stmt = $pdo->prepare("INSERT INTO socios (nombre, num_socio, email) VALUES (?, ?, ?)");
         return $stmt->execute([$nombre, $numSocio, $email]);
     }
-
     public static function editar($pdo, int $id, string $nombre, int $numSocio, string $email) {
         $stmt = $pdo->prepare("UPDATE socios SET nombre = ?, num_socio = ?, email = ? WHERE id = ?");
         return $stmt->execute([$nombre, $numSocio, $email, $id]);
     }
-
     public static function eliminar($pdo, int $id) {
         $stmt = $pdo->prepare("DELETE FROM socios WHERE id = ?");
         return $stmt->execute([$id]);
     }
-
     public static function buscarPorId($pdo, int $id) {
         $stmt = $pdo->prepare("SELECT * FROM socios WHERE id = ?");
         $stmt->execute([$id]);
         $fila = $stmt->fetch();
-
         return $fila
             ? new Socio($fila['nombre'], (int)$fila['num_socio'], $fila['email'], (int)$fila['id'])
             : null;

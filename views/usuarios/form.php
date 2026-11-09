@@ -6,7 +6,7 @@ $emailForm = $_POST['email'] ?? ($usuario ? $usuario->mostrarEmail() : '');
 require __DIR__ . '/../header.php';
 ?>
 
-<main class="container py-4">
+<main class="container py-4 seccion-pagina seccion-usuarios">
   <h1><?= isset($usuario) ? 'Editar usuario' : 'Nuevo usuario' ?></h1>
 
   <?php if (isset($error)): ?>

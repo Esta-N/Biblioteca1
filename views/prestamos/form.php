@@ -9,7 +9,7 @@ $fechaDevolucionForm = $_POST['fecha_devolucion'] ?? ($prestamo ? $prestamo->fec
 require __DIR__ . '/../header.php';
 ?>
 
-<main class="container py-4">
+<main class="container py-4 seccion-pagina seccion-prestamos">
   <h1><?= $prestamo ? 'Editar préstamo' : 'Nuevo préstamo' ?></h1>
 
   <?php if (isset($error)): ?>
@@ -23,6 +23,7 @@ require __DIR__ . '/../header.php';
       <a href="index.php?accion=listarSocios">Ir a socios</a>
     </div>
   <?php else: ?>
+    <div class="container">
     <form method="POST" action="/bob1/index.php?accion=<?= $prestamo ? 'editarPrestamo' : 'crearPrestamo' ?>">
       <?php if ($prestamo): ?>
         <input type="hidden" name="id" value="<?= $prestamo->mostrarId() ?>">
@@ -68,6 +69,7 @@ require __DIR__ . '/../header.php';
       <button type="submit" class="btn btn-primary">Guardar</button>
       <a href="index.php?accion=listarPrestamos" class="btn btn-outline-secondary">Cancelar</a>
     </form>
+  </div>
   <?php endif; ?>
 </main>
 

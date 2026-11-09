@@ -1,12 +1,13 @@
 <?php require __DIR__ . '/../header.php'; ?>
 
+<main class="container py-4 seccion-pagina seccion-libros">
 <h1><?= isset($libro) ? 'Editar libro' : 'Nuevo libro' ?></h1>
 
 <?php if (isset($error)): ?>
   <div class="alert alert-danger"><?= $error ?></div>
 <?php endif; ?>
-
-<form method="POST" action="index.php?accion=<?= isset($libro) ? 'editar' : 'crear' ?>" enctype="multipart/form-data">
+<div class="container">
+  <form method="POST" action="index.php?accion=<?= isset($libro) ? 'editar' : 'crear' ?>" enctype="multipart/form-data">
 
   <?php if (isset($libro)): ?>
       <input type="hidden" name="id" value="<?= $libro->mostrarId() ?>">
@@ -39,5 +40,6 @@
 
   <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
-
+</div>
+</main>
 <?php require __DIR__ . '/../footer.php'; ?>
